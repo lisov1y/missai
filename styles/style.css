@@ -99,39 +99,11 @@ header h1 {
     background-color: var(--secondary-accent);
 }
 
-.winner-card {
-    background-color: var(--dark-grey);
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 0 25px var(--shadow-color);
-    margin: 20px auto; /* Center winner card */
-    width: 300px; /* Fixed width for the card */
-    opacity: 0; /* Start hidden */
-    display: none; /* Initially hidden */
-    position: fixed; /* Centering winner card */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.winner-card.show-winner {
-    display: block; /* Show when selected */
-    opacity: 1; /* Show winner */
-}
-
-.winner-img {
-    border-radius: 8px;
-    width: 100%;
-    height: auto;
-}
-
-.winner-name,
 .contestant-name {
     font-size: 1.5rem;
     color: var(--accent-color);
 }
 
-.winner-bio,
 .contestant-bio {
     font-size: 1rem;
     color: var(--primary-text);
