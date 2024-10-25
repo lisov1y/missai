@@ -1,0 +1,202 @@
+:root {
+    --primary-bg: #0a0a0a;
+    --primary-text: #e6e6e6;
+    --accent-color: #00d1ff; /* Neon cyan */
+    --secondary-accent: #ff00ff; /* Neon magenta */
+    --highlight: #f0f0f0; /* Light glow */
+    --dark-grey: #1a1a1a;
+    --shadow-color: rgba(0, 209, 255, 0.4); /* Neon glow shadow */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    margin: 0;
+    padding: 0;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    width: 100%; /* Responsive */
+    margin: 0 auto; /* Center container */
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--highlight);
+    text-shadow: 0 0 15px var(--shadow-color); /* Neon glow text effect */
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.contestants {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: opacity 1s ease-in-out;
+}
+
+.contestant {
+    background-color: var(--dark-grey);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 0 15px var(--shadow-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%; /* Ensure equal height */
+}
+
+.contestant:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--shadow-color);
+}
+
+.contestant img {
+    border-radius: 8px 8px 0 0;
+    width: 100%;
+    height: auto;
+}
+
+.contestant-info {
+    padding: 15px;
+}
+
+.contestant-name {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.contestant-bio {
+    font-size: 1rem;
+    color: var(--primary-text);
+}
+
+.winner-selection {
+    margin-top: 40px;
+}
+
+.select-winner-btn {
+    background-color: var(--accent-color);
+    border: none;
+    color: var(--primary-bg);
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.select-winner-btn:hover {
+    background-color: var(--secondary-accent);
+}
+
+.winner-card {
+    background-color: var(--dark-grey);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 25px var(--shadow-color);
+    margin: 20px auto; /* Center winner card */
+    width: 300px; /* Fixed width for the card */
+    opacity: 0; /* Start hidden */
+    display: none; /* Initially hidden */
+    position: fixed; /* Centering winner card */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.winner-card.show-winner {
+    display: block; /* Show when selected */
+    opacity: 1; /* Show winner */
+}
+
+.winner-img {
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+}
+
+.winner-name,
+.contestant-name {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.winner-bio,
+.contestant-bio {
+    font-size: 1rem;
+    color: var(--primary-text);
+}
+
+/* Fade-in animation */
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeIn 0.5s forwards;
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full height for the loading animation */
+}
+
+.loading-circle {
+    width: 60px;
+    height: 60px;
+    border: 8px solid var(--accent-color);
+    border-top: 8px solid var(--secondary-accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px; /* Space between circle and text */
+}
+
+.loading-text {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--shadow-color);
+}
+
+/* Keyframes for spinning animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.selection,
+.winner {
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease-in-out; /* Smooth transition */
+}
+
+.selection.d-none,
+.winner.d-none {
+    display: none; /* Ensure they are not displayed when hidden */
+}
